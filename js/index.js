@@ -2,7 +2,7 @@
 var init_center_coords = [137.726126, 34.710834];
 
 // Bing APIのキー
-var bing_api_key = 'AhGQykUKW2-u1PwVjLwQkSA_1rCTFESEC7bCZ0MBrnzVbVy7KBHsmLgwW_iRJg17';
+var bing_api_key = 'AklbQHrRw-5lKhw2ETkjK9cDm9RDySANjo0WhlsvSpyCNsa9kpdRZm5a-eRoaSDO';
 
 // map
 var map;
@@ -107,6 +107,7 @@ $('#mainPage').on('pageshow', function() {
 		$('#changeBaseMap').append(option);
 	}
 
+/** 浜松市では最寄駅は不要
 	// 最寄駅セレクトボックスの生成
 	mtl = new MoveToList();
 	mtl.loadStationJson().then(function() {
@@ -116,6 +117,7 @@ $('#mainPage').on('pageshow', function() {
 			mtl.appendToMoveToListBox(moveToList);
 		});
 	});
+**/
 
 	// 保育施設クリック時の挙動を定義
 	map.on('click', function(evt) {

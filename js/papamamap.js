@@ -386,7 +386,7 @@ Papamamap.prototype.getPopupContent = function(feature)
 
     var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
     var proof = feature.get('証明') ? feature.get('証明') : feature.get('Proof');
-    if(type == "認可外" && proof === 'Y') {
+    if(type == "認可外保育所" && proof === 'Y') {
         content += '<tr>';
         content += '<th>監督基準</th>';
         content += '<td>';
@@ -427,6 +427,13 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<tr>';
         content += '<th>TEL</th>';
         content += '<td>' + tel + '</td>';
+        content += '</tr>';
+    }
+    var fax = feature.get('FAX') ? feature.get('FAX') : feature.get('FAX');
+    if (fax != null) {
+        content += '<tr>';
+        content += '<th>FAX</th>';
+        content += '<td>' + fax + '</td>';
         content += '</tr>';
     }
     var add1 = feature.get('住所１') ? feature.get('住所１') : feature.get('Add1');
