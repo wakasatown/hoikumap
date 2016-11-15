@@ -355,7 +355,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     var memo = feature.get('備考') ? feature.get('備考') : feature.get('Memo');
     if (memo != null) {
         content += '<tr>';
-        content += '<th></th>';
+        content += '<th>備考</th>';
         content += '<td>' + memo + '</td>';
         content += '</tr>';
     }
@@ -449,6 +449,43 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<tr>';
         content += '<th>設置者</th>';
         content += '<td>' + owner + '</td>';
+        content += '</tr>';
+    }
+    if(type == "認可保育所") {
+        var admitte0 = feature.get('admitte0');
+        var entry0 = feature.get('entry0');
+        var admitte1 = feature.get('admitte1');
+        var entry1 = feature.get('entry1');
+        var admitte2 = feature.get('admitte2');
+        var entry2 = feature.get('entry2');
+        var admitte3 = feature.get('admitte3');
+        var entry3 = feature.get('entry3');
+        var admitte4 = feature.get('admitte4');
+        var entry4 = feature.get('entry4');
+        var admitte5 = feature.get('admitte5');
+        var entry5 = feature.get('entry5');
+
+        content += '<tr>';
+        content += '<th colspan="2">募集人数（申込状況）</th>';
+        content += '</tr>';
+        content += '</tbody></table>';
+
+        content += '<table class="vborder"><tbody>';
+        content += '<tr>';
+        content += '<th>0歳</th>';
+        content += '<th>1歳</th>';
+        content += '<th>2歳</th>';
+        content += '<th>3歳</th>';
+        content += '<th>4歳</th>';
+        content += '<th>5歳</th>';
+        content += '</tr>';
+        content += '<tr>';
+        content += '<td style="text-align: center;">' + admitte0 + '('+ entry0 + ')' + '</td>';
+        content += '<td style="text-align: center;">' + admitte1 + '('+ entry1 + ')' + '</td>';
+        content += '<td style="text-align: center;">' + admitte2 + '('+ entry2 + ')' + '</td>';
+        content += '<td style="text-align: center;">' + admitte3 + '('+ entry3 + ')' + '</td>';
+        content += '<td style="text-align: center;">' + admitte4 + '('+ entry4 + ')' + '</td>';
+        content += '<td style="text-align: center;">' + admitte5 + '('+ entry5 + ')' + '</td>';
         content += '</tr>';
     }
     content += '</tbody></table>';

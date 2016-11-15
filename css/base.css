@@ -48,10 +48,10 @@
 	display: none;
 	position: absolute;
 	background-color: white;
-	width: 300px;
+	width: 400px;
 	bottom: 12px;
 	top: -192px;
-	left: -150px;
+	left: -200px;
 	border-radius: 10px;
 	border: 1px solid #cccccc;
 	-webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
@@ -93,15 +93,37 @@
 .ol-popup-closer:after {
 	content: "x";
 }
+#popup {
+	max-height: 320px;
+}
 #popup-closer {
 	top: -5px;
 	right: -5px;
 }
-
+#popup-content {
+	max-height: 288px;
+	overflow: auto;
+}
+#popup-content table {
+	width: 100%;
+}
+#popup-content th,
+#popup-content td {
+	padding: 5px 10px;
+	border-bottom: 1px solid #bbb;
+}
+#popup-content table.vborder th,
+#popup-content table.vborder td {
+	border-left: 1px solid #bbb;
+}
+#popup-content table.vborder th:first-child,
+#popup-content table.vborder td:first-child {
+	border-left: none;
+}
 #popup-content th {
-	width: 4.5em;
-	vertical-align: top;
-	background-color: white;
+	width: 7em;
+	text-align: center;
+	background-color: #ddd;
 }
 
 #popup-content td {
