@@ -59,6 +59,7 @@
 	filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
 }
 
+
 /*吹き出し風表示用の定義 */
 /*
 .ol-popup:after, .ol-popup:before {
@@ -94,14 +95,14 @@
 	content: "x";
 }
 #popup {
-	max-height: 320px;
+	max-height: 300px;
 }
 #popup-closer {
 	top: -5px;
 	right: -5px;
 }
 #popup-content {
-	max-height: 288px;
+	max-height: 268px;
 	overflow: auto;
 }
 #popup-content table {
@@ -109,8 +110,9 @@
 }
 #popup-content th,
 #popup-content td {
-	padding: 5px 10px;
 	border-bottom: 1px solid #bbb;
+	padding: 2px 5px;
+	font-size: 12px;
 }
 #popup-content table.vborder th,
 #popup-content table.vborder td {
@@ -168,4 +170,12 @@ h3 {
 
 legend {
 	margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+	.ol-popup {
+		width: 300px;
+		left: -150px;
+		-webkit-overflow-scrolling:touch;
+	}
 }
