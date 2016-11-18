@@ -95,14 +95,14 @@
 	content: "x";
 }
 #popup {
-	max-height: 230px;
+	max-height: 240px;
 }
 #popup-closer {
 	top: -5px;
 	right: -5px;
 }
 #popup-content {
-	max-height: 198px;
+	max-height: 208px;
 	overflow: auto;
 }
 #popup-content table {
