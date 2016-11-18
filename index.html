@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>浜松市保育園マップ by Code for Hamamatsu</title>
+        <title>浜松市保育園マップ</title>
         <link rel="stylesheet" href="css/ol.css" type="text/css">
         <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="css/bootstrap.css.map" type="text/css">
@@ -68,8 +68,8 @@
                         </optgroup>
                     </select>
 
-                    <a id="btnHelp" href="http://www.codeforsapporo.org/papamama/" target="_blank" class="ui-btn ui-icon-question ui-btn-icon-notext">help</a>
                     <!--
+                    <a id="btnHelp" href="http://www.codeforsapporo.org/papamama/" target="_blank" class="ui-btn ui-icon-question ui-btn-icon-notext">help</a>
                     <a id="btnHelp" href="#helpDialog" data-rel="popup" data-position-to="window" class="ui-btn ui-icon-question ui-btn-icon-notext">help</a>
                     -->
                 </fieldset>
@@ -92,7 +92,11 @@
                         <label for="ninkaOpenTime" class="select">開園</label>
                         <select id="ninkaOpenTime" class="filtersb">
                             <option value="">開園</option>
-                            <option value="7">7:00</option>
+                            <option value="7:00">7:00</option>
+                            <option value="7:15">7:15</option>
+                            <option value="7:20">7:20</option>
+                            <option value="7:25">7:25</option>
+                            <option value="7:30">7:30</option>
                         </select>
                         <label for="ninkaCloseTime" class="select">終園</label>
                         <select id="ninkaCloseTime" class="filtersb">
@@ -100,10 +104,10 @@
                             <option value="18">18:00以降</option>
                             <option value="19">19:00以降</option>
                             <option value="20">20:00以降</option>
-                            <option value="22">22:00以降</option>
-                            <option value="24">00:00</option>
+                            <option value="21">21:00以降</option>
                         </select>
                     </fieldset>
+<!--
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                         <label for="ninkaIchijiHoiku">一時保育</label>
                         <input type="checkbox" id="ninkaIchijiHoiku" class="filtercb">
@@ -116,6 +120,8 @@
                         <label for="ninkaVacancy">空きあり（試用版。最新の空き状況ではありません）</label>
                         <input type="checkbox" id="ninkaVacancy" class="filtercb">
                     </fieldset>
+-->
+<!--
                     <legend>認可外保育園</legend>
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                         <label for="ninkagaiOpenTime" class="select">開園</label>
@@ -142,6 +148,7 @@
                     <label for="ninkagaiShomei">証明書あり</label>
                     <input type="checkbox" id="ninkagaiShomei" class="filtercb">
                     </fieldset>
+-->
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                         <a href="#" data-rel="back" id="filterApply" class="ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-icon-check">条件適用</a>
                         <a href="#" id="filterReset" class="ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-icon-delete">リセット</a>

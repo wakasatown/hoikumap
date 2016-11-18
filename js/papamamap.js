@@ -342,16 +342,21 @@ Papamamap.prototype.getPopupContent = function(feature)
 {
     var content = '';
     content = '<table><tbody>';
-    var open  = feature.get('開園時間') ? feature.get('開園時間') : feature.get('Open');
-    var close = feature.get('終園時間') ? feature.get('終園時間') : feature.get('Close');
-    if (open !=  null || close != null ) {
-        content += '<tr>';
-        content += '<th>時間</th>';
-        content += '<td>';
-        content += (open ? open : "") + '〜' + (close ? close : "");
-        content += '</td>';
-        content += '</tr>';
-    }
+
+    var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
+    if(type == "認可保育所") {
+	    var open  = feature.get('開園時間') ? feature.get('開園時間') : feature.get('Open');
+	    var close = feature.get('終園時間') ? feature.get('終園時間') : feature.get('Close');
+	    if (open !=  null || close != null ) {
+	        content += '<tr>';
+	        content += '<th>時間</th>';
+	        content += '<td>';
+	        content += (open ? open : "") + '〜' + (close ? close : "");
+	        content += '</td>';
+	        content += '</tr>';
+	    }
+	}
+/**
     var memo = feature.get('備考') ? feature.get('備考') : feature.get('Memo');
     if (memo != null) {
         content += '<tr>';
@@ -359,6 +364,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>' + memo + '</td>';
         content += '</tr>';
     }
+**/
     var temp    = feature.get('一時') ? feature.get('一時') : feature.get('Temp');
     var holiday = feature.get('休日') ? feature.get('休日') : feature.get('Holiday');
     var night   = feature.get('夜間') ? feature.get('夜間') : feature.get('Night');
@@ -384,13 +390,12 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</tr>';
     }
 
-    var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
     var proof = feature.get('証明') ? feature.get('証明') : feature.get('Proof');
     if(type == "認可外保育所" && proof === 'Y') {
         content += '<tr>';
         content += '<th>監督基準</th>';
         content += '<td>';
-        content += '証明書発行済<a href="https://www.city.chiba.jp/kodomomirai/kodomomirai/unei/ninkagai.html" target="_blank">(詳細)</a>';
+        content += '証明書発行済<a href="http://www.hamamatsu-pippi.net/shiritai/hoiku_kyoiku/" target="_blank">(詳細)</a>';
         content += '</td>';
         content += '</tr>';
     }
@@ -407,14 +412,17 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</td>';
         content += '</tr>';
     }
-    var ageS = feature.get('開始年齢') ? feature.get('開始年齢') : feature.get('AgeS');
-    var ageE = feature.get('終了年齢') ? feature.get('終了年齢') : feature.get('AgeE');
-    if (ageS != null || ageE != null) {
-        content += '<tr>';
-        content += '<th>年齢</th>';
-        content += '<td>' + (ageS ? ageS : "") + '〜' + (ageE ? ageE : "") + '</td>';
-        content += '</tr>';
-    }
+
+    if(type == "認可保育所") {
+	    var ageS = feature.get('開始年齢') ? feature.get('開始年齢') : feature.get('AgeS');
+	    var ageE = feature.get('終了年齢') ? feature.get('終了年齢') : feature.get('AgeE');
+	    if (ageS != null || ageE != null) {
+	        content += '<tr>';
+	        content += '<th>年齢</th>';
+	        content += '<td>' + (ageS ? ageS : "") + '〜' + (ageE ? ageE : "") + '</td>';
+	        content += '</tr>';
+	    }
+	}
     var full = feature.get('定員') ? feature.get('定員') : feature.get('Full');
     if (full != null) {
         content += '<tr>';
@@ -429,6 +437,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>' + tel + '</td>';
         content += '</tr>';
     }
+/**
     var fax = feature.get('FAX') ? feature.get('FAX') : feature.get('FAX');
     if (fax != null) {
         content += '<tr>';
@@ -436,6 +445,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>' + fax + '</td>';
         content += '</tr>';
     }
+**/
     var add1 = feature.get('住所１') ? feature.get('住所１') : feature.get('Add1');
     var add2 = feature.get('住所２') ? feature.get('住所２') : feature.get('Add2');
     if (add1 != null || add2 != null) {
@@ -488,7 +498,15 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td style="text-align: center;">' + admitte5 + '('+ entry5 + ')' + '</td>';
         content += '</tr>';
     }
+
     content += '</tbody></table>';
+
+    var vacancyDate = feature.get('認可保育所欠員状況取得日') ? feature.get('認可保育所欠員状況取得日') : feature.get('VacancyDate');
+    if(vacancyDate != "") {
+	    content += '<p style="font-size:12px">更新：' + vacancyDate + '</p>';
+	} else {
+	    content += '<p style="font-size:12px">更新：－</p>';
+	}
     return content;
 };
 

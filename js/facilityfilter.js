@@ -50,7 +50,8 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
     if(conditions['ninkaOpenTime']) {
         filterfunc = function (item, idx) {
             f = function (item,idx) {
-                var _time = conditions['ninkaOpenTime'] + ":00";
+//                var _time = conditions['ninkaOpenTime'] + ":00";
+                var _time = conditions['ninkaOpenTime'];
                 var open = item.properties['開園時間'] ? item.properties['開園時間'] : item.properties['Open'];
                 if(open == _time) {
                     return true;
@@ -66,19 +67,16 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
             f = function (item,idx) {
                 switch(conditions['ninkaCloseTime']) {
                     case "18":
-                        checkAry = ["18:00","19:00","20:00","22:00","0:00"];
+                        checkAry = ["18:00","18:30","18:45","18:50","18:55","19:00","19:15","19:30","20:00","21:30"];
                         break;
                     case "19":
-                        checkAry = ["19:00","20:00","22:00","0:00"];
+                        checkAry = ["19:00","19:15","19:30","20:00","21:30"];
                         break;
                     case "20":
-                        checkAry = ["20:00","22:00","0:00"];
+                        checkAry = ["20:00","21:30"];
                         break;
-                    case "22":
-                        checkAry = ["22:00","0:00"];
-                        break;
-                    case "24":
-                        checkAry = ["0:00"];
+                    case "21":
+                        checkAry = ["21:30"];
                         break;
                 }
                 var close = item.properties['終園時間'] ? item.properties['終園時間'] : item.properties['Close'];
