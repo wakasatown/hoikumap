@@ -16,6 +16,13 @@
 
 - http://nlftp.mlit.go.jp/ksj/index.html
 
+## アプリケーションに必要なデータの作成方法
+
+下記のページにてアプリケーションで使用できる形式のデータを作成する事が可能です。
+国土数値情報ダウンロードデータ（shp、dbf）、および、浜松市で公開している保育所データ（独自CSVデータ）を元にデータを作成します。
+
+- https://hamaiku.github.io/hoikumap/convert/index.html
+
 ## ライセンスについて
 
 このソフトウェアは、MITライセンスでのもとで公開されています。[こちら](LICENSE.txt) をご覧ください。
