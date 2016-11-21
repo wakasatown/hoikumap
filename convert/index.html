@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>浜松市保育園マップデータ変換</title>
+  <script src="https://unpkg.com/shapefile@0.5.8"></script>
+  <script src="lib/GeoJSON/geojson.min.js"></script>
+  <script src="lib/PapaParse/papaparse.min.js"></script>
+</head>
+<body>
+  <h1>浜松市保育園マップデータ変換</h1>
+  <h2>■国土数値情報ダウンロードサービスのデータ</h2>
+  <p><a href="http://nlftp.mlit.go.jp/ksj/">国土数値情報ダウンロードサービス</a></p>
+  <fieldset>
+    <legend>１．抽出する市区町村の指定</legend>
+    <input id="cityCode" type="text" name="citycode" value="2213"><br>
+    市町村コードを入力します。（※浜松市の場合、22130～22137のため、先頭の4桁（2213）を入力します。）
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>２．中学校区域 (A32-13_xx.shp => MiddleSchool.geojson)</legend>
+    .shp <input id="MiddleSchool_shp" type="file" name=".shp" /><br>
+    .dbf <input id="MiddleSchool_dbf" type="file" name=".dbf" /><br>
+    <button type="button" id="createData_MiddleSchool">変換</button>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>３．小学校区域 (A27-10_xx-g_SchoolDistrict.shp => Elementary.geojson)</legend>
+    .shp <input id="Elementary_shp" type="file" name=".shp" /><br>
+    .dbf <input id="Elementary_dbf" type="file" name=".dbf" /><br>
+    <button type="button" id="createData_Elementary">変換</button>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>４．学校のデータ (p29-13_xx.shp => MiddleSchool_loc.geojson、Elementary_loc.geojson)</legend>
+    .shp <input id="School_shp" type="file" name=".shp" /><br>
+    .dbf <input id="School_dbf" type="file" name=".dbf" /><br>
+    <button type="button" id="createData_School">変換</button>
+  </fieldset>
+  <br>
+  <h2>■保育園データ（独自csv）</h2>
+  <fieldset>
+    <legend>１．保育園データ (*.csv => nurseryFacilities.geojson)</legend>
+    .csv <input id="nurseryFacilities_csv" type="file" name=".csv" /><br>
+    <button type="button" id="createData_nurseryFacilities">変換</button>
+  </fieldset>
+  <script src="lib/convgeojson.js"></script>
+</body>
+</html>
