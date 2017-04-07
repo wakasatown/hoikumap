@@ -319,7 +319,12 @@ Papamamap.prototype.getPopupTitle = function(feature)
     // タイトル部
     var title = '';
     var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
-    title  = '[' + type + '] ';
+    var subtype = feature.get('SubType') ? feature.get('SubType') : type;
+    if (type == '認可保育所') {
+        title  = '[' + subtype + '] ';
+    } else {
+        title  = '[' + type + '] ';
+    }
     var owner = feature.get('設置') ? feature.get('設置') : feature.get('Ownership');
     if(owner !== undefined && owner !== null && owner !== "") {
         title += ' [' + owner +']';
