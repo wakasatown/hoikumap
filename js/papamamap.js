@@ -480,29 +480,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         var admitte5 = feature.get('admitte5');
         var entry5 = feature.get('entry5');
 
-        content += '<tr>';
-        content += '<th colspan="2">募集人数（申込状況）</th>';
-        content += '</tr>';
-        content += '</tbody></table>';
-
-        content += '<table class="vborder"><tbody>';
-        content += '<tr>';
-        content += '<th>0歳</th>';
-        content += '<th>1歳</th>';
-        content += '<th>2歳</th>';
-        content += '<th>3歳</th>';
-        content += '<th>4歳</th>';
-        content += '<th>5歳</th>';
-        content += '</tr>';
-        content += '<tr>';
-        content += '<td style="text-align: center;">' + admitte0 + '('+ entry0 + ')' + '</td>';
-        content += '<td style="text-align: center;">' + admitte1 + '('+ entry1 + ')' + '</td>';
-        content += '<td style="text-align: center;">' + admitte2 + '('+ entry2 + ')' + '</td>';
-        content += '<td style="text-align: center;">' + admitte3 + '('+ entry3 + ')' + '</td>';
-        content += '<td style="text-align: center;">' + admitte4 + '('+ entry4 + ')' + '</td>';
-        content += '<td style="text-align: center;">' + admitte5 + '('+ entry5 + ')' + '</td>';
-        content += '</tr>';
-    }
+      
 
     content += '</tbody></table>';
 
